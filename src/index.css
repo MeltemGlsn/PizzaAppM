@@ -33,13 +33,13 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
+  border-radius: 18px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 0.4em 2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #f9f9f9;
+  background-color: #f1c40f;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -49,4 +49,106 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+.title-container {
+  margin-top: -18rem;
+}
+.custom-title {
+  font-weight: bold;
+  font-family: "Courier New", monospace; 
+  font-size: 2em;
+}
+
+.default-title {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 300
+}
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+}
+/* Header Stili */
+.navbar {
+  background-color: #CE2829; /* Kırmızı arka plan */
+  width: 100vw;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* Navbar İçerik */
+.nav-container {
+  display: flex;
+  width: 90%;
+  max-width: 1200px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  height: 60px;
+  max-height: 8vh;
+}
+
+/* Menü */
+.navbar nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar li {
+  display: inline;
+  font-size: 20px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+/* Sipariş Oluştur Sayfasında Menü Pasif */
+.navbar .disabled {
+  color: #ffcccc;
+  font-weight: bold;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Responsive Tasarım */
+@media screen and (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo {
+    height: 50px;
+  }
+
+  .navbar nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar li {
+    font-size: 18px;
+  }
 }
