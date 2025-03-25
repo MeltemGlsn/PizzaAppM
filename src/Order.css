@@ -1,103 +1,167 @@
+/* Navbar */
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #CE2829;
+  padding: 20px 0;
+  position: relative;
+  width: 100%;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.bottom-nav {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.bottom-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 15px;
+}
+
+.bottom-nav ul li {
+  display: inline;
+}
+
+.bottom-nav ul li a,
+.bottom-nav ul li span {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.bottom-nav ul li .disabled {
+  opacity: 0.6;
+}
+
 /* Genel Sayfa Stili */
 .order-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+  height: 100vh;
+}
+
+/* Form Stili */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+label {
+  font-weight: bold;
+  margin: 10px 0 5px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Radio ve Checkbox Grupları */
+.radio-group, .checkbox-group, .ek-malzemeler {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.radio-group label, .checkbox-group label, .ek-malzemeler label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Sipariş Özeti */
+.order-summary {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.order-summary h3 {
+  margin-bottom: 10px;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 600px) {
+  form, .order-summary {
+    width: 90%;
   }
-  
-  /* Form Stili */
-  form {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  label {
-    font-weight: bold;
-    margin: 10px 0 5px;
-  }
-  
-  input, select, textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  /* Radio ve Checkbox Grupları */
-  .radio-group, .checkbox-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .radio-group label, .checkbox-group label {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  
-  /* Ek Malzemeler */
-  .ek-malzemeler {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .ek-malzemeler label {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  
-  /* Sipariş Özeti */
-  .order-summary {
-    background: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    margin-top: 15px;
-    width: 100%;
-    max-width: 500px;
-  }
-  
-  .order-summary h3 {
-    margin-bottom: 10px;
-  }
-  
-  /* Buton Stili */
-  button {
-    background-color: #CE2829;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  
-  /* Responsive Tasarım */
-  @media (max-width: 600px) {
-    form, .order-summary {
-      width: 90%;
-    }
-  
-    .radio-group, .checkbox-group, .ek-malzemeler {
-      fle
+}
+.pizza-info {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 600px;
+}
+
+.pizza-info h2 {
+  color: #CE2829;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.pizza-price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.pizza-rating {
+  font-size: 16px;
+  color: #777;
+}
+
+.pizza-description {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #555;
+}

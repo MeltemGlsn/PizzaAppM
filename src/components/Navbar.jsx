@@ -7,10 +7,8 @@ function Navbar() {
 
   return (
     <header className="navbar">
-      {/* Logo Ortada */}
-      <img src="/images/iteration-1-images/logo.svg" alt="Teknolojik Yemekler Logo" className="logo" />
-
-      {/* Navigasyon Sadece Anasayfada Olmamalı */}
+      <div ><img src="/images/iteration-1-images/logo.svg" alt="Teknolojik Yemekler Logo" className="logo" /></div>
+      
       {location.pathname !== "/" && (
         <nav className="bottom-nav">
           <ul>

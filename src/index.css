@@ -53,11 +53,6 @@ button:focus-visible {
 .title-container {
   margin-top: -18rem;
 }
-.custom-title {
-  font-weight: bold;
-  font-family: "Courier New", monospace; 
-  font-size: 2em;
-}
 
 .default-title {
   font-family: "Roboto Condensed", sans-serif;
@@ -74,8 +69,7 @@ button:focus-visible {
 .navbar {
   background-color: #CE2829; /* Kırmızı arka plan */
   width: 100vw;
-  height: 15vh;
-  display: flex;
+  height: 20vh;
   align-items: center;
   justify-content: center;
   position: fixed;
@@ -97,6 +91,8 @@ button:focus-visible {
 .logo {
   height: 60px;
   max-height: 8vh;
+  align-items: center;
+  width: 25vw;
 }
 
 /* Menü */
@@ -138,11 +134,6 @@ button:focus-visible {
     flex-direction: column;
     text-align: center;
   }
-
-  .logo {
-    height: 50px;
-  }
-
   .navbar nav ul {
     flex-direction: column;
     gap: 10px;
