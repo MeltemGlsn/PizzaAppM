@@ -1,60 +1,15 @@
-/* Navbar */
-.navbar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #CE2829;
-  padding: 20px 0;
-  position: relative;
-  width: 100%;
-}
-
-.logo {
-  width: 150px;
-  height: auto;
-  margin-bottom: 10px;
-}
-
-.bottom-nav {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-}
-
-.bottom-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 15px;
-}
-
-.bottom-nav ul li {
-  display: inline;
-}
-
-.bottom-nav ul li a,
-.bottom-nav ul li span {
-  color: white;
-  text-decoration: none;
-  font-size: 16px;
-}
-
-.bottom-nav ul li .disabled {
-  opacity: 0.6;
-}
-
 /* Genel Sayfa Stili */
 .order-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 20px;
   font-family: Arial, sans-serif;
   background-color: #f8f8f8;
   height: 100vh;
+  width: 100%;
+  box-sizing: border-box; /* Padding'in genişlikten çıkmasını engeller */
 }
 
 /* Form Stili */
@@ -62,85 +17,30 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 15px;
+  justify-content: flex-start;
+  gap: 20px;
   background: white;
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 500px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  max-width: 600px;
+  position: relative;
+  margin: 0 auto; /* Formu yatayda ortalamak için margin: auto kullanıyoruz */
+  margin-top: 8rem;
+  box-sizing: border-box; /* Padding'in genişlikten çıkmasını engeller */
 }
 
-label {
-  font-weight: bold;
-  margin: 10px 0 5px;
-}
-
-input, select, textarea {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-/* Radio ve Checkbox Grupları */
-.radio-group, .checkbox-group, .ek-malzemeler {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.radio-group label, .checkbox-group label, .ek-malzemeler label {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-/* Sipariş Özeti */
-.order-summary {
-  background: #fff;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  margin-top: 15px;
-  width: 100%;
-  max-width: 500px;
-}
-
-.order-summary h3 {
-  margin-bottom: 10px;
-}
-
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-/* Responsive Tasarım */
-@media (max-width: 600px) {
-  form, .order-summary {
-    width: 90%;
-  }
-}
+/* Pizza Bilgisi */
 .pizza-info {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
   text-align: center;
   background: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 90%;
-  max-width: 600px;
+  width: 100%;
+  margin-bottom: 20px;
+  box-sizing: border-box; /* Padding'in genişlikten çıkmasını engeller */
 }
 
 .pizza-info h2 {
@@ -164,4 +64,99 @@ button:disabled {
   font-size: 14px;
   margin-top: 10px;
   color: #555;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+  form, .order-summary, .pizza-info {
+    width: 90%; /* Daha dar cihazlarda formu %90 genişlikte yap */
+    padding: 20px;
+  }
+
+  .pizza-info {
+    width: 100%; /* Pizza bilgisi kutusunun genişliği de tam genişlikte olsun */
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  form, .order-summary, .pizza-info {
+    width: 95%; /* Mobilde %95 genişlikte form */
+    padding: 15px;
+  }
+}
+.ek-malzemeler {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.topping-item {
+  display: flex;
+  align-items: center;
+}
+
+.topping-info {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+/* İsteğe bağlı: Sadece 4 malzeme eklerken 4. sütunun altına kayması */
+@media (max-width: 768px) {
+  .ek-malzemeler {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+/* Sipariş Notu genişlik ayarı */
+.notes-textarea {
+  width: 100%;
+  height: 120px;
+  resize: vertical;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+/* Sipariş Miktarı Arttırma/Azaltma butonları */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity-controls button {
+  padding: 8px 15px;
+  font-size: 16px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.quantity-controls input {
+  width: 50px;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* Sipariş Toplamı Konteyneri */
+.total-price-container {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-top: 20px;
+  background-color: #f9f9f9;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }

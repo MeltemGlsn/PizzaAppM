@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from "react"; 
 import axios from "axios";
 import "../Order.css";
 import Navbar from "../components/Navbar";
@@ -52,19 +52,24 @@ function Order() {
     }
   };
 
+  const handleQuantityChange = (delta) => {
+    setQuantity((prev) => Math.max(1, prev + delta));
+  };
+
   return (
-    <div className="order-page">      
+    <div className="order-page">
+      <Navbar />      
       {/* Sipariş Formu */}
       <form onSubmit={handleSubmit}>
-      <div className="pizza-info">
-        <h2>Position Absolute Acı Pizza</h2>
-        <p>85₺ | ⭐ 4.9 (200)</p>
-        <p>Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre.Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. Küçük bir pizzaya bazen pizzetta denir.</p>
-      </div>
-        <label>İsim:</label>
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+        <div>
+          <h2>Position Absolute Acı Pizza</h2>
+          <p>85₺                   ⭐ 4.9 (200)</p>
+          <p>Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. Küçük bir pizzaya bazen pizzetta denir.</p>
+        </div>
 
-        <label>Boyut Seç:</label>
+        <label>
+          Boyut Seç <span style={{ color: 'red' }}>*</span>
+        </label>
         <div className="radio-group">
           {["Küçük", "Orta", "Büyük"].map((sizeOption) => (
             <label key={sizeOption}>
@@ -74,7 +79,9 @@ function Order() {
           ))}
         </div>
 
-        <label>Hamur Kalınlığı:</label>
+        <label>
+          Hamur Kalınlığı <span style={{ color: 'red' }}>*</span>
+        </label>
         <select value={crust} onChange={(e) => setCrust(e.target.value)} required>
           <option value="">Seçiniz</option>
           <option value="İnce">İnce</option>
@@ -83,32 +90,45 @@ function Order() {
         </select>
 
         <label>Ek Malzemeler ({toppings.length}/{maxToppings}):</label>
+        <p className="topping-info">En fazla 10 malzeme seçebilirsin. 5₺</p>
         <div className="ek-malzemeler">
-          {extraToppings.map((topping) => (
-            <label key={topping}>
-              <input type="checkbox" checked={toppings.includes(topping)} onChange={() => handleToppingChange(topping)} />
-              {topping}
-            </label>
+          {extraToppings.map((topping, index) => (
+            <div key={topping} className={`topping-item topping-${index % 3}`}>
+              <label>
+                <input type="checkbox" checked={toppings.includes(topping)} onChange={() => handleToppingChange(topping)} />
+                {topping}
+              </label>
+            </div>
           ))}
         </div>
 
-        <label>Sipariş Notları:</label>
-        <textarea value={notes} onChange={(e) => setNotes(e.target.value)} />
+        <label>Sipariş Notu:</label>
+        <textarea 
+          value={notes} 
+          onChange={(e) => setNotes(e.target.value)} 
+          className="notes-textarea" 
+        />
 
         <div className="order-summary">
           <label>Sipariş Adedi:</label>
-          <input type="number" value={quantity} min="1" onChange={(e) => setQuantity(Number(e.target.value))} />
+          <div className="quantity-controls">
+            <button type="button" onClick={() => handleQuantityChange(-1)}>-</button>
+            <input type="number" value={quantity} min="1" readOnly />
+            <button type="button" onClick={() => handleQuantityChange(1)}>+</button>
+          </div>
 
-          <h3>Sipariş Toplamı</h3>
-          <p>Seçilen Boyut: {size || "Belirtilmemiş"}</p>
-          <p>Hamur Kalınlığı: {crust || "Belirtilmemiş"}</p>
-          <p>Ek Malzemeler: {toppings.length ? toppings.join(", ") : "Yok"}</p>
-          <p>Toplam Tutar: {totalPrice}₺</p>
+          <div className="total-price-container">
+            <h3>Sipariş Toplamı</h3>
+            <p>Seçilen Boyut: {size || "Belirtilmemiş"}</p>
+            <p>Hamur Kalınlığı: {crust || "Belirtilmemiş"}</p>
+            <p>Ek Malzemeler: {toppings.length ? toppings.join(", ") : "Yok"}</p>
+            <p>Toplam Tutar: {totalPrice}₺</p>
+          </div>
+
+          <button type="submit" disabled={!isFormValid || loading} className="submit-button">
+            {loading ? "Sipariş Gönderiliyor..." : "Siparişi Onayla"}
+          </button>
         </div>
-
-        <button type="submit" disabled={!isFormValid || loading}>
-          {loading ? "Sipariş Gönderiliyor..." : "Siparişi Onayla"}
-        </button>
       </form>
 
       {response && (

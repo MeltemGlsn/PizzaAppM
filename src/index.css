@@ -21,7 +21,6 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
@@ -69,7 +68,7 @@ button:focus-visible {
 .navbar {
   background-color: #CE2829; /* Kırmızı arka plan */
   width: 100vw;
-  height: 20vh;
+  height: 15vh;
   align-items: center;
   justify-content: center;
   position: fixed;
