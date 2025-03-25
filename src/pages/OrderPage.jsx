@@ -125,7 +125,7 @@ function Order() {
             <p>Toplam Tutar: {totalPrice}₺</p>
           </div>
 
-          <button type="submit" disabled={!isFormValid || loading} className="submit-button">
+          <button type="submit" className="submit-button">
             {loading ? "Sipariş Gönderiliyor..." : "Siparişi Onayla"}
           </button>
         </div>

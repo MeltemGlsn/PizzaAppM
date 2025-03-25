@@ -149,14 +149,12 @@ form {
 .submit-button {
   width: 100%;
   padding: 10px;
-  background-color: #4CAF50;
-  color: white;
   border: none;
   cursor: pointer;
   font-size: 16px;
+  border-radius: 0px;
 }
 
 .submit-button:disabled {
-  background-color: #ccc;
   cursor: not-allowed;
 }
