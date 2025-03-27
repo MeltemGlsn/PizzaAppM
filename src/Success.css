@@ -1,28 +1,96 @@
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
 .success-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #CE2829;
-    color: white;
-    text-align: center;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh; /* Tam ekran yüksekliği */
+  width: 100vw;  /* Tam ekran genişliği */
+  background-color: #CE2829;
+  color: white;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 3rem;
+}
+
+.logo {
+  max-width: 100%;  /* Logonun genişliği %100 olacak, ekran boyutuna göre küçülecek */
+  max-height: 100px; /* Maksimum yükseklik 200px olacak */
+  object-fit: contain;  /* Logonun orantılı şekilde sığmasını sağlar */
+}
+
+.success-message {
   
+  padding: 30px;
+  border-radius: 10px;
+  width: 100%;  /* İçeriğin genişliği ekranın %90'ı olacak */
+  max-width: 600px;  /* Maksimum genişlik 400px */
+}
+
+.success-message h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.success-message p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.home-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: white;
+  color: #CE2829;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
   .success-message {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 30px;
-    border-radius: 10px;
+    width: 90%;  /* Ekran küçükse içerik daha geniş görünsün */
+    padding: 20px;
   }
-  
+
+  .success-message h1 {
+    font-size: 1.5rem;  /* Başlık boyutunu küçült */
+  }
+
+  .success-message p {
+    font-size: 1rem;  /* Paragraf boyutunu küçült */
+  }
+
   .home-link {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background: white;
-    color: #CE2829;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
+    padding: 8px 16px;  /* Link butonunun boyutlarını küçük ekranlarda uyumlu hale getir */
   }
-  
+}
+
+@media (max-width: 480px) {
+  .logo {
+    max-height: 150px;  /* Logo daha küçük ekranlarda biraz daha küçük olacak */
+  }
+
+  .success-message {
+    padding: 15px;  /* Daha küçük ekranlarda padding azalt */
+  }
+
+  .success-message h1 {
+    font-size: 1.2rem;  /* Başlık fontunu daha da küçült */
+  }
+
+  .success-message p {
+    font-size: 0.9rem;  /* Paragraf fontunu da küçült */
+  }
+
+  .home-link {
+    padding: 6px 12px;  /* Butonun boyutunu daha da küçült */
+  }
+}

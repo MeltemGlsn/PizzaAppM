@@ -1,18 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import "../Success.css";
+import { useNavigate } from "react-router-dom";
+import "../Success.css"; // CSS dosyasını dahil ediyoruz
 
-function Success() {
+function SuccessPage() {
+  const navigate = useNavigate();
+
   return (
     <div className="success-page">
-      <Navbar />
+      <img 
+        src="/images/iteration-1-images/logo.svg" 
+        alt="Logo" 
+        className="logo" 
+        onClick={() => navigate("/")} 
+        style={{ cursor: "pointer" }}
+      />
       <div className="success-message">
-        <h1>Tebrikler! Siparişiniz alındı 🎉</h1>
-        <Link to="/" className="home-link">Ana Sayfaya Dön</Link>
+        <p>Tebrikler! Siparişiniz alındı 🎉</p>
       </div>
     </div>
   );
 }
 
-export default Success;
+export default SuccessPage;
